@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Copies a file from the mac to the workstation in the identical location.
+# Example usage: scpw ~/Downloads/_sf/test.zip
+# Copies to the ~/Downloads/_sf/test.zip folder in the workstation.
+
+[[ "$#" != 1 ]] && { echo "Error: Need source file name"; exit 128; }
+
+remoteHome="/usr/local/google/home/ksark"
+s=$1
+t=${1/${HOME}/${remoteHome}}
+cmdLine=(scp -r $s ksark@ksark.wat.corp.google.com:\"$t\")
+echo "Running..."
+echo "${cmdLine[@]}"
+eval "${cmdLine[@]}"
