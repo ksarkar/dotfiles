@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Unzips a storefront
+
+[[ "$#" != 1 ]] && { echo "Error: Need zip file name"; exit 128; }
+
+unzipLocation=${1/.zip/}
+cmdLine=(unzip $1 -d ${unzipLocation})
+echo "Running..."
+echo "${cmdLine[@]}"
+eval "${cmdLine[@]}" 1> /dev/null
