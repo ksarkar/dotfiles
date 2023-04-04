@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Creates a storefront zip from the files in the $PWD.
+
+[[ "$#" != 1 ]] && { echo "Error: Need zip file name (without the .zip part)"; exit 128; }
+
+cmdLine=(zip -r ../$1 .)
+echo "Running..."
+echo "${mdLine[@]}"
+eval "${cmdLine[@]}" 1> /dev/null
